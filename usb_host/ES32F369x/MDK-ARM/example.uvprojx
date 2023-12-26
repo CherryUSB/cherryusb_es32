@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>ES32F36xx,</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\Drivers\CMSIS\Include;..\..\..\Drivers\CMSIS\Device\EastSoft\ES32F36xx\Include;..\..\..\Drivers\ALD\ES32F36xx\Include;..\Inc;..\..\..\CherryUSB\common;..\..\..\CherryUSB\core;..\..\..\CherryUSB\class\cdc;..\..\..\CherryUSB\class\hid;..\..\..\CherryUSB\class\msc;..\..\..\CherryUSB\class\hub;..\..\..\CherryUSB\class\audio;..\..\..\CherryUSB\class\video;..\..\..\CherryUSB\class\wireless;..\..\..\CherryUSB\osal;..\..\..\CherryUSB\third_party\FreeRTOS-10.4\include;..\..\..\CherryUSB\third_party\FreeRTOS-10.4\portable\GCC\ARM_CM3</IncludePath>
+              <IncludePath>..\..\..\Drivers\CMSIS\Include;..\..\..\Drivers\CMSIS\Device\EastSoft\ES32F36xx\Include;..\..\..\Drivers\ALD\ES32F36xx\Include;..\Inc;..\..\..\CherryUSB\common;..\..\..\CherryUSB\core;..\..\..\CherryUSB\class\cdc;..\..\..\CherryUSB\class\hid;..\..\..\CherryUSB\class\msc;..\..\..\CherryUSB\class\hub;..\..\..\CherryUSB\class\audio;..\..\..\CherryUSB\class\video;..\..\..\CherryUSB\class\wireless;..\..\..\CherryUSB\osal;..\..\..\CherryUSB\third_party\FreeRTOS-10.4\include;..\..\..\CherryUSB\third_party\FreeRTOS-10.4\portable\GCC\ARM_CM3;..\..\..\CherryUSB\third_party\fatfs-0.14\source</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -543,6 +543,36 @@
               <FileName>port.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\CherryUSB\third_party\FreeRTOS-10.4\portable\GCC\ARM_CM3\port.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Fatfs</GroupName>
+          <Files>
+            <File>
+              <FileName>diskio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\third_party\fatfs-0.14\source\diskio.c</FilePath>
+            </File>
+            <File>
+              <FileName>ff.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\third_party\fatfs-0.14\source\ff.c</FilePath>
+            </File>
+            <File>
+              <FileName>ffsystem.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\third_party\fatfs-0.14\source\ffsystem.c</FilePath>
+            </File>
+            <File>
+              <FileName>ffunicode.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\third_party\fatfs-0.14\source\ffunicode.c</FilePath>
+            </File>
+            <File>
+              <FileName>fatfs_usbh.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\third_party\fatfs-0.14\source\port\fatfs_usbh.c</FilePath>
             </File>
           </Files>
         </Group>
