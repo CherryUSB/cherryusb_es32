@@ -6,14 +6,17 @@
 #ifndef CHERRYUSB_CONFIG_H
 #define CHERRYUSB_CONFIG_H
 
-#define CHERRYUSB_VERSION 0x001002
+#include "FreeRTOS.h"
+
+#define CHERRYUSB_VERSION     0x010000
+#define CHERRYUSB_VERSION_STR "v1.0.0"
 
 /* ================ USB common Configuration ================ */
 
 #define CONFIG_USB_PRINTF(...) printf(__VA_ARGS__)
 
-#define usb_malloc(size) malloc(size)
-#define usb_free(ptr)    free(ptr)
+#define usb_malloc(size) pvPortMalloc(size)
+#define usb_free(ptr)    vPortFree(ptr)
 
 #ifndef CONFIG_USB_DBG_LEVEL
 #define CONFIG_USB_DBG_LEVEL USB_DBG_INFO
@@ -90,6 +93,7 @@
 
 /* ================ USB HOST Stack Configuration ================== */
 
+#define CONFIG_USBHOST_MAX_BUS              1
 #define CONFIG_USBHOST_MAX_RHPORTS          1
 #define CONFIG_USBHOST_MAX_EXTHUBS          1
 #define CONFIG_USBHOST_MAX_EHPORTS          4
@@ -135,18 +139,16 @@
 
 /* ================ USB Host Port Configuration ==================*/
 
-#define USBH_IRQHandler USB_INT_Handler
-#define USBH_BASE (0x40086400UL)
 #define CONFIG_USBHOST_PIPE_NUM 4
 
 /* ================ EHCI Configuration ================ */
 
-#define CONFIG_USB_EHCI_HCCR_BASE   (0x20072000)
-#define CONFIG_USB_EHCI_HCOR_BASE   (0x20072000 + 0x10)
-#define CONFIG_EHCI_FRAME_LIST_SIZE 1024
+#define CONFIG_USB_EHCI_HCOR_OFFSET     (0x10)
+#define CONFIG_USB_EHCI_FRAME_LIST_SIZE 1024
 // #define CONFIG_USB_EHCI_INFO_ENABLE
-// #define CONFIG_USB_ECHI_HCOR_RESERVED_DISABLE
+// #define CONFIG_USB_EHCI_HCOR_RESERVED_DISABLE
 // #define CONFIG_USB_EHCI_CONFIGFLAG
 // #define CONFIG_USB_EHCI_PORT_POWER
+// #define CONFIG_USB_EHCI_PRINT_HW_PARAM
 
 #endif

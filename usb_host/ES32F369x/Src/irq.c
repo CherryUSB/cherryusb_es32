@@ -39,6 +39,10 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
+#include "usbh_core.h"
+
+extern struct usbh_bus *usb_otg_hs_bus;
+
 /** @addtogroup Projects_Examples_ALD
   * @{
   */
@@ -64,6 +68,7 @@ void NMI_Handler(void)
 void HardFault_Handler(void)
 {
 	/* Added debug information */
+    printf("execption\r\n");
 	while (1)
 		;
 }
@@ -159,10 +164,12 @@ void DMA_Handler(void)
   * @brief  USB IRQ#70 handler
   * @retval None
   */
-//void USB_INT_Handler()
-//{
-//	usb0_device_int_handler();
-//}
+void USB_INT_Handler()
+{
+	extern struct usbh_bus *usb_otg_hs_bus;
+    extern void USBH_IRQHandler(struct usbh_bus *bus);
+    USBH_IRQHandler(usb_otg_hs_bus);
+}
 
 /**
   * @brief  USB_DMA IRQ#71 handler
