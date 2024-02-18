@@ -166,9 +166,8 @@ void DMA_Handler(void)
   */
 void USB_INT_Handler()
 {
-	extern struct usbh_bus *usb_otg_hs_bus;
-    extern void USBH_IRQHandler(struct usbh_bus *bus);
-    USBH_IRQHandler(usb_otg_hs_bus);
+    extern void USBH_IRQHandler(uint8_t busid);
+    USBH_IRQHandler(0);
 }
 
 /**

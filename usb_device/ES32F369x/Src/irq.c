@@ -156,10 +156,12 @@ void DMA_Handler(void)
   * @brief  USB IRQ#70 handler
   * @retval None
   */
-//void USB_INT_Handler()
-//{
-//	usb0_device_int_handler();
-//}
+void USB_INT_Handler()
+{
+	//usb0_device_int_handler();
+    extern void USBD_IRQHandler(uint8_t busid);
+    USBD_IRQHandler(0);
+}
 
 /**
   * @brief  USB_DMA IRQ#71 handler

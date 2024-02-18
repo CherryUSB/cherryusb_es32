@@ -6,7 +6,8 @@
 #ifndef CHERRYUSB_CONFIG_H
 #define CHERRYUSB_CONFIG_H
 
-#define CHERRYUSB_VERSION 0x001002
+#define CHERRYUSB_VERSION     0x010000
+#define CHERRYUSB_VERSION_STR "v1.0.0"
 
 /* ================ USB common Configuration ================ */
 
@@ -44,8 +45,12 @@
 /* Enable test mode */
 // #define CONFIG_USBDEV_TEST_MODE
 
-#ifndef CONFIG_USBDEV_MSC_BLOCK_SIZE
-#define CONFIG_USBDEV_MSC_BLOCK_SIZE 512
+#ifndef CONFIG_USBDEV_MSC_MAX_LUN
+#define CONFIG_USBDEV_MSC_MAX_LUN 1
+#endif
+
+#ifndef CONFIG_USBDEV_MSC_MAX_BUFSIZE
+#define CONFIG_USBDEV_MSC_MAX_BUFSIZE 512
 #endif
 
 #ifndef CONFIG_USBDEV_MSC_MANUFACTURER_STRING
@@ -90,11 +95,12 @@
 
 /* ================ USB HOST Stack Configuration ================== */
 
+#define CONFIG_USBHOST_MAX_BUS              1
 #define CONFIG_USBHOST_MAX_RHPORTS          1
 #define CONFIG_USBHOST_MAX_EXTHUBS          1
 #define CONFIG_USBHOST_MAX_EHPORTS          4
-#define CONFIG_USBHOST_MAX_INTERFACES       6
-#define CONFIG_USBHOST_MAX_INTF_ALTSETTINGS 1
+#define CONFIG_USBHOST_MAX_INTERFACES       8
+#define CONFIG_USBHOST_MAX_INTF_ALTSETTINGS 8
 #define CONFIG_USBHOST_MAX_ENDPOINTS        4
 
 #define CONFIG_USBHOST_MAX_CDC_ACM_CLASS 4
@@ -127,26 +133,36 @@
 #ifndef CONFIG_USBHOST_MSC_TIMEOUT
 #define CONFIG_USBHOST_MSC_TIMEOUT 5000
 #endif
+
+#define CONFIG_USBHOST_BLUETOOTH_HCI_H4
+// #define CONFIG_USBHOST_BLUETOOTH_HCI_LOG
+
+#ifndef CONFIG_USBHOST_BLUETOOTH_TX_SIZE
+#define CONFIG_USBHOST_BLUETOOTH_TX_SIZE 2048
+#endif
+#ifndef CONFIG_USBHOST_BLUETOOTH_RX_SIZE
+#define CONFIG_USBHOST_BLUETOOTH_RX_SIZE 2048
+#endif
+
 /* ================ USB Device Port Configuration ================*/
 
-#define USBD_IRQHandler USB_INT_Handler
-#define USBD_BASE (0x40086400UL)
-#define USB_NUM_BIDIR_ENDPOINTS 5
+#define CONFIG_USBDEV_MAX_BUS 1 // for now, bus num must be 1 except hpm ip
+
+#define CONFIG_USBDEV_EP_NUM 4
 
 /* ================ USB Host Port Configuration ==================*/
 
-#define USBH_IRQHandler USB_INT_Handler
-#define USBH_BASE (0x40086400UL)
-#define CONFIG_USBHOST_PIPE_NUM 4
+// #define CONFIG_USBHOST_PIPE_NUM 10
 
 /* ================ EHCI Configuration ================ */
 
-#define CONFIG_USB_EHCI_HCCR_BASE   (0x20072000)
-#define CONFIG_USB_EHCI_HCOR_BASE   (0x20072000 + 0x10)
-#define CONFIG_EHCI_FRAME_LIST_SIZE 1024
+#define CONFIG_USB_EHCI_HCCR_OFFSET     (0x0)
+#define CONFIG_USB_EHCI_HCOR_OFFSET     (0x10)
+#define CONFIG_USB_EHCI_FRAME_LIST_SIZE 1024
 // #define CONFIG_USB_EHCI_INFO_ENABLE
-// #define CONFIG_USB_ECHI_HCOR_RESERVED_DISABLE
+// #define CONFIG_USB_EHCI_HCOR_RESERVED_DISABLE
 // #define CONFIG_USB_EHCI_CONFIGFLAG
 // #define CONFIG_USB_EHCI_PORT_POWER
+// #define CONFIG_USB_EHCI_PRINT_HW_PARAM
 
 #endif

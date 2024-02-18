@@ -35,8 +35,6 @@
 #include "task.h"
 #include "usbh_core.h"
 
-struct usbh_bus *usb_otg_hs_bus;
-
 static void vtask_led(void *pvParameters);
 uart_handle_t h_uart = { 0 };
 /** @addtogroup Projects_Examples_USB
@@ -142,9 +140,9 @@ int main()
 
     uart_pin_init();
     printf("\rSystem start...\r\n");
-    usb_otg_hs_bus = usbh_alloc_bus(0, USB0_BASE);
+
     extern void usbh_class_test(void);
-    usbh_initialize(usb_otg_hs_bus);
+    usbh_initialize(0, USB0_BASE);
     usbh_class_test();
     vTaskStartScheduler();
     while (1) {

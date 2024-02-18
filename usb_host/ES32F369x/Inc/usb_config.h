@@ -133,8 +133,6 @@
 #endif
 /* ================ USB Device Port Configuration ================*/
 
-#define USBD_IRQHandler USB_INT_Handler
-#define USBD_BASE (0x40086400UL)
 #define USB_NUM_BIDIR_ENDPOINTS 5
 
 /* ================ USB Host Port Configuration ==================*/
