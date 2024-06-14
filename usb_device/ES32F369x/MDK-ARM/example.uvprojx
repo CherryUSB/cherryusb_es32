@@ -489,6 +489,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\CherryUSB\port\musb\usb_dc_musb.c</FilePath>
             </File>
+            <File>
+              <FileName>usb_glue_es.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\port\musb\usb_glue_es.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

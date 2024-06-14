@@ -499,6 +499,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\CherryUSB\port\musb\usb_hc_musb.c</FilePath>
             </File>
+            <File>
+              <FileName>usb_glue_es.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\port\musb\usb_glue_es.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -570,9 +575,9 @@
               <FilePath>..\..\..\CherryUSB\third_party\fatfs-0.14\source\ffunicode.c</FilePath>
             </File>
             <File>
-              <FileName>fatfs_usbh.c</FileName>
+              <FileName>usbh_fatfs.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\CherryUSB\third_party\fatfs-0.14\source\port\fatfs_usbh.c</FilePath>
+              <FilePath>..\..\..\CherryUSB\platform\none\usbh_fatfs.c</FilePath>
             </File>
           </Files>
         </Group>
